@@ -36,7 +36,7 @@ CREATE TABLE nome_da_tabela (
 
 
 												   /* Dados de Caracteres (Texto) */
-    coluna_texto VARCHAR(255), -- Para strings de caracteres de comprimento variável, definindo o tamanho máximo.
+    coluna_texto VARCHAR(1), -- Para strings de caracteres de comprimento variável, definindo o tamanho máximo dentro do colchete.
 
 													      
                                                           /* Dados Lógicos*/
@@ -54,6 +54,30 @@ CREATE TABLE nome_da_tabela (
     coluna_blob BLOB, -- Para armazenar dados binários grandes (imagens, áudios, vídeos, PDFs).
 
                                                        
-                                                       /* Dados Estruturados/Outros */
+                                                        /* Dados Estruturados */
     coluna_json JSON -- Para armazenar documentos JSON diretamente, e caso for outro tipo, é so trocar o JSON pelo nome, como por exemplo o XML.
 );
+
+													   /* Consultar Dados (SELECT) */
+SELECT *FROM Nome_da_Tabela; -- Selecionar a tabela especificada para visualizar.
+SELECT Coluna1, Coluna2, Outra_Coluna FROM Nome_da_Tabela; -- Selecionar as colunas especificas da tabela informada.
+SELECT * FROM Nome_da_Tabela WHERE Coluna_Filtro = 'AlgumValor'; -- Selecionar os valores de uma coluna e tabela especificada, o where é usado para selecionar apenas o valor que esta nas aspas
+
+
+														 /* Inserir Dados (INSERT) */
+INSERT INTO Nome_da_Tabela VALUES (Valor1, Valor2, Valor3); -- Inserir dados em todas as colunas na ordem que esta o codigo com os valores.
+
+INSERT INTO Nome_da_Tabela (Coluna1, Coluna2, Coluna3) VALUES (Valor1, Valor2, Valor3);-- Inserir dados nas colunas com os tipos especificados conforme a ordem da tabela.
+
+
+														 /* Atualizar Dados (UPDATE) */
+UPDATE Nome_da_Tabela SET 
+    Coluna_Para_Alterar = Novo_Valor,
+    Outra_Coluna = Outro_Novo_Valor
+WHERE Coluna_Filtro = 'AlgumValor'; -- Execute esta ação (atualizar, deletar ou selecionar) somente nas linhas onde a Coluna_Filtro tiver o valor 'AlgumValor'.
+
+													
+                                                            /* Deletar Dados (DELETE) */
+DELETE FROM Nome_da_Tabela WHERE Coluna_Filtro = 'AlgumValor'; -- O comando DELETE é usado para remover uma ou mais linhas de uma tabela, O WHERE especifica quais linhas devem ser deletadas.
+DROP database nome_do_banco; -- Esse deleta por completo o banco de dados escrito.
+DROP table nome_da_tabela -- Esse deleta por completo a tabea escrita.
